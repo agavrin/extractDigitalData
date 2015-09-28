@@ -21,7 +21,6 @@ public class extractDigitalData {
         // Load example of HTML5 page
         String myPage = loadPage("http://www.ibm.com/search/csa/v18searchc/?q=bluemix&hpp=20&o=0&co=us&lo=any");
 
-
         String myPageJSOnly = cleanPage(myPage);
         // evaluate script
         engine.eval(myPageJSOnly);
@@ -57,12 +56,9 @@ public class extractDigitalData {
     private static String cleanPage(String myPage) {
 
         StringBuilder sb = new StringBuilder(myPage);
-
         int start = sb.indexOf("<script");
         start = sb.indexOf(">", start) + 1;
-
         sb.delete(0, start);
-
         int end = sb.indexOf("</script>");
 
         int myLength = sb.length();
@@ -90,8 +86,8 @@ public class extractDigitalData {
                 break;
             buf.append((char) ch);
         }
-        String str = buf.toString();
-        return str;
+
+        return buf.toString();
     }
 
 
